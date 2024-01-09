@@ -38,6 +38,7 @@ $hotels = [
 ],
 
 ];
+
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +65,25 @@ $hotels = [
 } ?> 
 
 
+<div class="container sm">
+<form class="mb-4">
+  <div class="form-group">
+    <label for="parking">Parking</label>
+    <select class="form-control" id="parking">
+      <option value="">All</option>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="vote">Vote</label>
+    <input type="number" class="form-control" id="vote" value="" min="0" max="5">
+  </div>
+  <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+</div>
+
+
 <!-- Stampa con tabella bootstrap -->
 <table class="table">
     <thead>
@@ -76,7 +96,8 @@ $hotels = [
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($hotels as $hotel) {
+        <?php
+        foreach ($hotels as $hotel) {
             echo '<tr>';
             echo '<td>' . $hotel['name'] . '</td>';
             echo '<td>' . $hotel['description'] . '</td>';
